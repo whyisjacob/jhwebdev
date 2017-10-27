@@ -10,48 +10,117 @@
 	<meta name="author" content="Jacob Hershberger - Full Stack Developer">
 	<meta charset="UTF-8">
 
-	<title>Jacob Hershberger – Full Stack Developer</title>
+	<title>Jacob Hershberger – Web Developer</title>
 
 	<!--google analytics code-->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-52800155-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
 
-	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	  gtag('config', 'UA-52800155-1');
+	</script>
+
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<script
+	src="https://code.jquery.com/jquery-3.2.1.min.js"
+	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	crossorigin="anonymous"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 	<style>
 	</style>
 </head>
 <body>
-	<header class="welcome">
-		<div class="header">
-			<h1>Jacob Hershberger</h1>
-			<h2>Full Stack Developer</h2>
-			<div class="headboarder"></div>
-			<p>
-				Developing the world,<br>
-				One line at a time;<br>
-				Making it look pretty, <br>
-				At the same time. :)
-			</p>
+	<nav class="navbar navbar-default">
+	    <div class="navbar-header">
+	        <img alt="brand_img" class=" brand_img" src="assets/images/jh-logo.png">
+	    </div>
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<aside class="col-sm-3">
+				<section class="left_panel">
+					<h2>
+						<small>Jacob Hershberger</small><br>
+						Front-End Developer<br>
+						<small><small><em>Full-Stack certification in progress</em></small></small>
+					</h2>
+					<ul class="contact">
+						<li><strong>Phone:</strong> <tel>801-636-7668</tel></li>
+						<li><strong>Email:</strong> <a href="mailto:jake@jhwebdev.com">jake@jhwebdev.com</a></li>
+						<li><strong>Location:</strong> Northern Utah</li>
+					</ul>
+				</section>
+			</aside>
+			<section class="col-sm-6">
+				<article class="content">
+					<h3>
+						Content with Image
+					</h3>
+					<img src="http://via.placeholder.com/150x150">
+
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque saepe possimus debitis placeat pariatur, quam mollitia alias perspiciatis, illum, optio numquam labore sed dicta quo dolor nesciunt fuga esse aliquam. <a href="#">click here</a>
+					</p>
+				</article>
+				<article class="content">
+					<h3>
+						Content without an image
+					</h3>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque saepe possimus debitis placeat pariatur, quam mollitia alias perspiciatis, illum, optio numquam labore sed dicta quo dolor nesciunt fuga esse aliquam.
+					</p>
+				</article>
+			</section>
+			<aside class="col-sm-3">
+				<section class="right_panel">
+					<ul class="quicklinks">
+						<li>
+							<strong>LinkedIn</strong>
+							<br>
+							<a href="https://www.linkedin.com/in/jacobhershberger/" target="_blank">View</a>
+						</li>
+						<li>
+							<strong>GitHub</strong>
+							<br>
+							<a href="https://github.com/whyisjacob" target="_blank">View</a>
+						</li>
+						<li>
+							<strong>Stack Overflow</strong>
+							<br>
+							<a href="https://stackoverflow.com/users/3795116/jhwebdevguy" target="_blank"> View</a>
+						</li>
+						<li>
+							<strong>Code Wars</strong>
+							<br>
+							<a href="https://www.codewars.com/users/whyisjacob" target="_blank">View</a>
+						</li>
+						<li>
+							<strong>Twitter</strong>
+							<br>
+							<a href="https://twitter.com/jhwebdevguy" target="_blank">View</a>
+						</li>
+					</ul>
+
+				</section>
+			</aside>
 		</div>
-	</header>
-
-	<section class="about">
-		<div class="header">
-			<h1>Jacob Hershberger</h1>
-			<h2>Full Stack Developer</h2>
-			<div class="headboarder"></div>
-			<p>
-				Developing the world,<br>
-				One line at a time;<br>
-				Making it look pretty, <br>
-				At the same time. :)
-			</p>
-		</div>
-	</section>
-
-
-
-	<a href="" class="next_section">\/</a>
+	</div>
 </body>
 
 </html>
