@@ -54,10 +54,10 @@ body{
     text-transform: capitalize;
     font-size: 17px;
     letter-spacing: 1px;
-    /*margin: 0px 2%;*/
+    margin: 0px 2%;
     cursor: pointer;
 }
-.nav-item:after {
+/*.nav-item:after {
 	width: auto;
 	display:block;
 	content: '';
@@ -67,7 +67,7 @@ body{
 }
 .nav-item:hover:after { 
 	transform: scaleX(1);
-}
+}*/
 .quicklinks {
 	background-color: #fff;
     list-style: none;
