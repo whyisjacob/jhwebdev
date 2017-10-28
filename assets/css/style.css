@@ -37,6 +37,37 @@ body{
 .left_panel>h2, .left_panel>h2>small{
 	/*color:#d87919;*/
 }
+.navbar{
+	height: 80px;
+}
+.navbar-header{
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	margin: 0 auto;
+}
+.nav-content {
+    position: absolute;
+    width: 100%;
+}
+.nav-item {
+    text-transform: capitalize;
+    font-size: 17px;
+    letter-spacing: 1px;
+    /*margin: 0px 2%;*/
+    cursor: pointer;
+}
+.nav-item:after {
+	width: auto;
+	display:block;
+	content: '';
+	border-bottom: solid 3px #019fb6;  
+	transform: scaleX(0);  
+	transition: transform 250ms ease-in-out;
+}
+.nav-item:hover:after { 
+	transform: scaleX(1);
+}
 .quicklinks {
 	background-color: #fff;
     list-style: none;
