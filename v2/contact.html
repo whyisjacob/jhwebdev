@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="Jacob Hershberger Web Developer">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="JhWebDev is the online development portfolio for Jacob Hershberger. Located in Utah Jacob is a full-stack developer and makes awesome websites for those who want one.">
+    <meta name="keywords" content="Jacob Hershberger, jacob hershberger full stack developer, jacob hershberger full-stack developer, Utah Web Developer, full-stack developer, full-stack development full stack developer, full stack development,">
+    <meta name="author" content="Jacob Hershberger - Full Stack Developer">
+    <meta charset="UTF-8">
+
+    <title>Jacob Hershberger – Web Developer</title>
+
+    <!--google analytics code-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-52800155-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-52800155-1');
+    </script>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <script src="https://use.fontawesome.com/6b50bc4b96.js"></script>
+
+    <style>
+
+    </style>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("user_4c8PBUV0eppTQwYQCBweF");
+        })();
+    </script>
+</head>
+
+<body>
+    <nav id="nav" class="navbar navbar-default"></nav>
+
+    <div class=" container">
+        <div class="row">
+            <section class="col-sm-12">
+                <article class="content">
+                    <h3>
+                        Contact Jake
+                    </h3>
+                    <p>
+                        Feel free to connect with me at the following sites:
+                        <ul class="contact_list">
+                            <li><a href="https://github.com/whyisjacob" target="_blank"><i class="fa fa-github-square" aria-hidden="true"></i>
+                                GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/jacobhershberger/" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i> LinkedIn</a></li>
+                            <li><a href="https://twitter.com/jhwebdevguy" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+                            <li><a href="https://fb.me/jhwebdev" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook</a></li>
+                        </ul>
+                        <br>
+                        <br>
+                        Or please fill out the form below.
+                        <br>
+                        <br>
+                        <form id="myform">
+                            <label>Your Email</label><br>
+                            <input type="email" name="reply_to" value="" required/><br>
+                            <label>Your Name</label><br>
+                            <input type="text" name="from_name" value="" required/><br>
+                            <span class="hidden">
+                                <input type="text" name="to_name" value="Jake" /><br>
+                            </span>
+                            <label>Message</label> <br>
+                            <textarea name="message_html" id="" cols="30" rows="10" required></textarea>
+
+                            <script src="https://www.google.com/recaptcha/api.js"></script>
+                            <!-- <div class="g-recaptcha" data-sitekey="6LcRYzoUAAAAAAc7a_zo_jj1FswpcgVitcIisB1H"></div> -->
+
+                            <br><br>
+                            <button class="btn btn-success">
+                                Send Message
+                            </button>
+                        </form>
+
+                        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+                        <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+                        <script type="text/javascript">
+                            (function () {
+                                emailjs.init("user_4c8PBUV0eppTQwYQCBweF");
+                            })();
+                        </script>
+                    </p>
+                </article>
+            </section>
+        </div>
+    </div>
+    <footer id="footer" class="footer"></footer>
+    <script src="assets/js/app.js"></script>
+
+</body>
+<script>
+    var myform = $("form#myform");
+    myform.submit(function (event) {
+        event.preventDefault();
+
+        var params = myform.serializeArray().reduce(function (obj, item) {
+            obj[item.name] = item.value;
+            return obj;
+        }, {});
+
+        // Change to your service ID, or keep using the default service
+        var service_id = "default_service";
+
+        var template_id = "jhwebdev_contact";
+        myform.find("button").text("Sending...");
+        emailjs.send(service_id, template_id, params)
+            .then(function () {
+                alert("Sent!");
+                myform.find("button").text("Send");
+            }, function (err) {
+                alert("Send email failed! " + JSON.stringify(err));
+                myform.find("button").text("Send");
+            });
+        return false;
+    });
+</script>
+
+</html>

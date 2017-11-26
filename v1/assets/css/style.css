@@ -34,8 +34,25 @@ body{
     float: left;
     padding-right: 12px;
 }
-.left_panel>h2, .left_panel>h2>small{
-	/*color:#d87919;*/
+.contact{
+	list-style:none;
+	padding: 0;
+}
+.contact>li>a{
+	color:#000;
+	text-decoration: none;
+}
+.left_panel{
+	background: #fff;
+	padding: 10px 20px;
+	margin-bottom: 30px;
+	min-height: 250px;
+}
+.left_panel>h2{
+	margin-top: 10px;
+}
+.my_image {
+    margin: -10px;
 }
 .navbar{
 	height: 80px;
@@ -57,17 +74,6 @@ body{
     margin: 0px 2%;
     cursor: pointer;
 }
-/*.nav-item:after {
-	width: auto;
-	display:block;
-	content: '';
-	border-bottom: solid 3px #019fb6;  
-	transform: scaleX(0);  
-	transition: transform 250ms ease-in-out;
-}
-.nav-item:hover:after { 
-	transform: scaleX(1);
-}*/
 .quicklinks {
 	background-color: #fff;
     list-style: none;
@@ -87,13 +93,5 @@ body{
 }
 .quicklinks>li>a{
 	color: #000;
-	text-decoration: none;
-}
-.contact{
-	list-style:none;
-	padding: 0;
-}
-.contact>li>a{
-	color:#000;
 	text-decoration: none;
 }

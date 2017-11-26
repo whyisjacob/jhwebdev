@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="Jacob Hershberger Web Developer">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="JhWebDev is the online development portfolio for Jacob Hershberger. Located in Utah Jacob is a full-stack developer and makes awesome websites for those who want one.">
+    <meta name="keywords" content="Jacob Hershberger, jacob hershberger full stack developer, jacob hershberger full-stack developer, Utah Web Developer, full-stack developer, full-stack development full stack developer, full stack development,">
+    <meta name="author" content="Jacob Hershberger - Full Stack Developer">
+    <meta charset="UTF-8">
+
+    <title>Jacob Hershberger – Web Developer</title>
+
+    <!--google analytics code-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-52800155-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-52800155-1');
+    </script>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <nav id="nav" class="navbar navbar-default">
+    </nav>
+    <div class=" container">
+        <div class="row">
+            <section class="col-sm-12">
+                <span class="alert alert-warning hidden"></span>
+                <article class="content col-sm-12">
+                    <h3>
+                        User Info
+                    </h3>
+                    <p>
+                        <label for="username">Username</label><br>
+                        <input type="email" name="username" id="username">
+                        <br>
+                        <label for="Name">Name</label><br>
+                        <input type="text" name="name" id="name">
+                        <br>
+                        <label for="uid">User Id</label><br>
+                        <span id="uid"> </span>
+                        <br>
+                        <br>
+                        <button id="signin" class="btn btn-success" onclick="updateInfo()">Update Information</button>
+                    </p>
+                </article>
+                <article class="content col-sm-12">
+                    <h3>
+                        Portfolio Additions
+                        <button class="btn btn-success" onclick="addPortfolio()">Add New</button>
+                    </h3>
+                    <p id="portfolio">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td>Title</td>
+                                    <td>Image</td>
+                                    <td>Description</td>
+                                    <td>Date Added</td>
+                                </tr>
+                            </thead>
+                            <tbody id="portfolio_table">
+                            </tbody>
+                        </table>
+                    </p>
+                </article>
+                <article class="content col-sm-12">
+                    <h3>
+                        Blog Posts
+                        <button class="btn btn-success" onclick="addBlog()">Add New</button>
+
+                    </h3>
+                    <p id="blog">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td>Title</td>
+                                    <td>Image</td>
+                                    <td>Description</td>
+                                    <td>Date Added</td>
+                                </tr>
+                            </thead>
+                            <tbody id="blog_table">
+                            </tbody>
+                        </table>
+                    </p>
+                </article>
+        </div>
+    </div>
+
+
+
+    <!--=========
+begin modal popup
+==========-->
+
+    <div id="portfolio_modal" class="modal_background hidden">
+        <div id="jh_modal" class="">
+            <div class="modal-body">
+                <button type="button" class="close modal_close" id="jh_modal_close_x" onclick="hideModal()">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h3 id="modal_head">
+                    Add a New Portfolio Item
+                </h3>
+
+                <p id="modal_text">
+                    <label for="portfolio_name">Project Name</label><br>
+                    <input type="text" name="portfolio_name" id="portfolio_name">
+                    <br>
+
+                    <label for="portfolio_desc">Project Description <small>Use HTML if needed</small></label><br>
+                    <textarea type="text" name="portfolio_desc" id="portfolio_desc" cols="50" rows="10"></textarea>
+                    <br>
+
+                    <label for="portfolio_role">My Role <small>Use HTML if needed</small></label><br>
+                    <textarea type="text" name="portfolio_role" id="portfolio_role" cols="50" rows="5"></textarea>
+                    <br>
+                    
+                    <label for="portfolio_tech">Technologies Used <small>Use HTML if needed</small></label><br>
+                    <textarea type="text" name="portfolio_tech" id="portfolio_tech" cols="50" rows="5"></textarea>
+                    <br>
+
+
+                    <label for="portfolio_url">Project URL (if applicable)</label><br>
+                    <input type="url" name="portfolio_url" id="portfolio_url">
+                    <br>
+
+                    <label for="portfolio_image">Image</label><br>
+                    <input type="file" name="pic" accept="image/*" class="required form-control" placeholder="Image from Web" aria-describedby="sizing-addon2"
+                        name='portfolio_image' id="portfolio_image" value="upload" onchange="handleFiles(this.files)">
+                    <span id="imgPreview"></span>
+                    <br>
+                    <progress id="uploader" value="0" max="100">0%</progress>
+                    <span id="uploadstatus"></span>
+                    <br>
+                </p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class=" btn btn-success" onclick="saveItem()">Save Portfolio Item</button>
+                <button type="button" class="modal_close btn btn-default" onclick="hideModal()">Go Back</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="blog_modal" class="modal_background hidden">
+        <div id="jh_modal" class="">
+            <div class="modal-body">
+                <button type="button" class="close modal_close" id="jh_modal_close_x" onclick="hideModal()">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                <h3 id="modal_head">
+                    Add a New Blog Post
+                </h3>
+
+                <p id="modal_text">
+                    <label for="blog_name">Post Name</label><br>
+                    <input type="text" name="blog_name" id="blog_name">
+                    <br>
+
+                    <label for="blog_desc_short">Short Description About the Post <small>255 Char Max</small></label><br>
+                    <textarea type="text" name="blog_desc_short" id="blog_desc_short" cols="50" rows="10" maxlength="255"></textarea>
+                    <br>
+
+                    <label for="blog_desc">Blog Post <small>Use HTML</small></label><br>
+                    <textarea type="text" name="blog_desc" id="blog_desc" cols="50" rows="10"></textarea>
+                    <br>
+
+                    <label for="portfolio_image">Image</label><br>
+                    <input type="file" name="pic" accept="image/*" class="required form-control" placeholder="Image from Web" aria-describedby="sizing-addon2"
+                        name='blog_image' id="blog_image" value="upload" onchange="handleBlogFiles(this.files)">
+                    <span id="blog_imgPreview"></span>
+                    <br>
+                    <progress id="blog_uploader" value="0" max="100">0%</progress>
+                    <span id="blog_uploadstatus"></span>
+                    <br>
+                </p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class=" btn btn-success" onclick="saveBlogPost()">Save Portfolio Item</button>
+
+                <button type="button" class="modal_close btn btn-default" onclick="hideModal()">Go Back</button>
+            </div>
+        </div>
+    </div>
+    <footer id="footer" class="footer"></footer>
+    <script src="assets/js/app.js"></script>
+
+</body>
+
+<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-messaging.js"></script>
+
+<!-- Leave out Storage -->
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-storage.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBkppkWbSC6oS9osKp6nnZSMOHcrvJMx2k",
+        authDomain: "jh-web-dev.firebaseapp.com",
+        databaseURL: "https://jh-web-dev.firebaseio.com",
+        projectId: "jh-web-dev",
+        storageBucket: "jh-web-dev.appspot.com",
+        messagingSenderId: "68443462212"
+    };
+    firebase.initializeApp(config);
+    var database = firebase.database();
+
+    var uid,
+        pImage,
+        bImage;
+    var d = new Date();
+    var y = d.getFullYear();
+    var m = d.getMonth();
+    console.log(m);
+    switch (m) {
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+        case 8:
+        case 9:
+            m = 0 + d.getMonth();
+            break;
+    }
+    m++
+
+    d = d.getDate();
+    switch (d) {
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+        case 8:
+        case 9:
+            d = '0' + d.getDate();
+            break;
+    }
+
+    var dateStamp = y + '-' + m + '-' + d;
+    console.log(dateStamp)
+
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            console.log(user)
+            $('#username').val(user.email)
+            $('#name').val(user.displayName)
+            $('#uid').html(user.uid)
+            uid = user.uid
+
+            database.ref('/portfolio/').orderByKey();
+            database.ref('/portfolio/').orderByKey().once("value")
+                .then(function (snapshot) {
+                    console.log(snapshot)
+                    snapshot.forEach(function (childSnapshot) {
+
+                        //recipy key
+                        var key = childSnapshot.key;
+                        console.log(key)
+
+                        var data = childSnapshot.val();
+                        console.log(data)
+
+
+                        $('#portfolio_table').prepend('<tr><td>' + data.projectName +
+                            '</td><td><img class="acct_img" src="' + data.projectImage + '" alt="' + data.projectName +
+                            '"</td><td>' + data.projectDesc + '</td><td>' + data.date +
+                            '</td></tr>')
+
+                    })
+
+                })
+
+
+            database.ref('/blog/').orderByKey();
+            database.ref('/blog/').orderByKey().once("value")
+                .then(function (snapshot) {
+                    console.log(snapshot)
+                    snapshot.forEach(function (childSnapshot) {
+
+                        //recipy key
+                        var key = childSnapshot.key;
+                        console.log(key)
+
+                        var data = childSnapshot.val();
+                        console.log(data)
+
+
+                        $('#blog_table').prepend('<tr><td>' + data.blogName +
+                            '</td><td><img class="acct_img" src="' + data.blogImage + '" alt="' + data.blogName +
+                            '"</td><td>' + data.blogShortDesc + '</td><td>' + data.date +
+                            '</td></tr>')
+
+                    })
+
+                })
+
+
+
+            $('.table').DataTable({
+                // "paging":   false,
+                // "ordering": false,
+                // "info":     false
+            });
+
+        } else {
+            console.log('no luck2')
+            $('.container').html('<h3>You must be logged in to view this page')
+            // User is signed out.
+            // ...
+        }
+    });
+
+    function updateInfo() {
+        var user = firebase.auth().currentUser;
+
+        user.updateProfile({
+            displayName: $('#name').val()
+            // photoURL: "https://example.com/jane-q-user/profile.jpg"
+        }).then(function () {
+            // Update successful.
+        }).catch(function (error) {
+            // An error happened.
+        });
+
+    }
+
+    function addPortfolio() {
+        window.location ='#';
+        $('#portfolio_modal').removeClass('hidden')
+
+    }
+
+    function addBlog() {
+        window.location ='#';
+        $('#blog_modal').removeClass('hidden')
+
+    }
+
+    function hideModal() {
+        $('.modal_background').addClass('hidden')
+    }
+
+
+    function handleFiles(files) {
+        $('#imgPreview').html('');
+        for (var i = 0; i < files.length; i++) {
+            file = files[i];
+
+            if (!file.type.startsWith('image/')) {
+                continue
+            }
+
+            img = document.createElement("img");
+            img.classList.add("obj");
+            img.classList.add("acct_img"); 
+            img.file = file;
+            document.getElementById('imgPreview').appendChild(img);
+
+            var reader = new FileReader();
+            reader.onload = (function (aImg) {
+                return function (e) {
+                    aImg.src = e.target.result;
+                };
+            })(img);
+            reader.readAsDataURL(file);
+        }
+    }
+
+    function handleBlogFiles(files) {
+        $('#blog_imgPreview').html('');
+        for (var i = 0; i < files.length; i++) {
+            file = files[i];
+
+            if (!file.type.startsWith('image/')) {
+                continue
+            }
+
+            img = document.createElement("img");
+            img.classList.add("obj");
+            img.classList.add("acct_img"); 
+            img.file = file;
+            document.getElementById('blog_imgPreview').appendChild(img);
+
+            var reader = new FileReader();
+            reader.onload = (function (aImg) {
+                return function (e) {
+                    aImg.src = e.target.result;
+                };
+            })(img);
+            reader.readAsDataURL(file);
+        }
+    }
+
+    var v
+    // Create a root reference
+    var uploader = document.getElementById('uploader');
+    //Portfolio Addition
+    var fileButton = document.getElementById('portfolio_image');
+    fileButton.addEventListener('change', function (e) {
+        $('#uploadstatus').html(
+            '<br>The image is uploading...<br><strong>Do not refresh the page or navigate away.<br><br></strong>'
+        )
+
+        var file = e.target.files[0];
+        var storageRef = firebase.storage().ref('/portfolio_images/' + file.name);
+        var task = storageRef.put(file);
+        task.on('state_changed', function progress(snapshot) {
+            var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            uploader.value = percentage;
+            console.log('snapshot')
+            console.log(snapshot)
+            console.log('image url');
+            v = snapshot
+
+        }, function error(err) {
+            console.log(err)
+
+        }, function complete(data) {
+            console.log(data);
+            $('#blog_uploadstatus').html('<br>Upload Complete!<br><br>')
+            console.log('snapshot in done');
+            console.log(v);
+            pImage = v.task.N.downloadURLs[0];
+            console.log(pImage)
+
+        });
+    });
+
+    //Blog Post Image
+    var fileButton2 = document.getElementById('blog_image');
+    var uploader2 = document.getElementById('blog_uploader');
+
+    fileButton2.addEventListener('change', function (e) {
+        $('#blog_uploadstatus').html(
+            '<br>The image is uploading...<br><strong>Do not refresh the page or navigate away.<br><br></strong>'
+        )
+
+        var file = e.target.files[0];
+        var storageRef = firebase.storage().ref('/blog_images/' + file.name);
+        var task = storageRef.put(file);
+        task.on('state_changed', function progress(snapshot) {
+            var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            uploader2.value = percentage;
+            console.log('snapshot')
+            console.log(snapshot)
+            console.log('image url');
+            v = snapshot
+
+        }, function error(err) {
+            console.log(err)
+
+        }, function complete(data) {
+            console.log(data);
+            $('#blog_uploadstatus').html('<br>Upload Complete!<br><br>')
+            console.log('snapshot in done');
+            console.log(v);
+            bImage = v.task.N.downloadURLs[0];
+            console.log(pImage)
+
+        });
+    });
+
+
+    function saveItem() {
+        alert('saved')
+        hideModal()
+
+        var pName = $('#portfolio_name').val();
+        var pDesc = $('#portfolio_desc').val();
+        var pUrl = $('#portfolio_url').val();
+        var projectRole = $('#portfolio_role').val();
+        var projectTech = $('#portfolio_tech').val();
+
+        var newPostKey = firebase.database().ref().child('portfolio-items').push().key;
+        var updates = {};
+
+        var postData = {
+            projectName: pName,
+            projectDesc: pDesc,
+            projectUrl: pUrl,
+            projectImage: pImage,
+            postKey: newPostKey,
+            date: dateStamp,
+            projectRole: projectRole,
+            projectTech: projectTech
+        }
+
+        updates['/portfolio/' + newPostKey] = postData;
+        return database.ref().update(updates);
+
+    }
+
+    function saveBlogPost() {
+        alert('saved')
+        hideModal()
+
+        var bName = $('#blog_name').val();
+        var bDesc = $('#blog_desc').val();
+        var blogShortDesc = $('#blog_desc_short').val();
+
+        var newPostKey = firebase.database().ref().child('blog-post').push().key;
+        var updates = {};
+
+        var postData = {
+            blogName: bName,
+            blogDesc: bDesc,
+            blogImage: bImage,
+            postKey: newPostKey,
+            blogShortDesc: blogShortDesc,
+            date: dateStamp
+        }
+
+        updates['/blog/' + newPostKey] = postData;
+        return database.ref().update(updates);
+
+    }
+</script>
+
+</html>

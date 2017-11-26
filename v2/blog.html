@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="generator" content="Jacob Hershberger Web Developer">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="JhWebDev is the online development portfolio for Jacob Hershberger. Located in Utah Jacob is a full-stack developer and makes awesome websites for those who want one.">
+	<meta name="keywords" content="Jacob Hershberger, jacob hershberger full stack developer, jacob hershberger full-stack developer, Utah Web Developer, full-stack developer, full-stack development full stack developer, full stack development,">
+	<meta name="author" content="Jacob Hershberger - Full Stack Developer">
+	<meta charset="UTF-8">
+
+	<title>Jacob Hershberger – Web Developer</title>
+
+	<!--google analytics code-->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-52800155-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-52800155-1');
+	</script>
+
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	    crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	    crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	    crossorigin="anonymous"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	    crossorigin="anonymous"></script>
+
+	<!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+	<style>
+
+	</style>
+</head>
+
+<body>
+	<nav id="nav" class="navbar navbar-default"></nav>
+	
+	<div class=" container">
+		<div class="row">
+			<section id="blog_item" class="col-sm-12">
+				<article class="content">
+					<h3>A Simple Non-Blog Post</h3>
+					Hmmm... It looks like I have not written any blog posts yet.<br>
+					I guess I'm busy building stuff so.. I'll write next vacation. :)
+				</article>
+			</section>
+		</div>
+	</div>
+
+	<footer id="footer" class="footer"></footer>
+	
+</body>
+<script src="assets/js/app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-messaging.js"></script>
+
+<!-- Leave out Storage -->
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-storage.js"></script>
+<script>
+	// Initialize Firebase
+	var config = {
+		apiKey: "AIzaSyBkppkWbSC6oS9osKp6nnZSMOHcrvJMx2k",
+		authDomain: "jh-web-dev.firebaseapp.com",
+		databaseURL: "https://jh-web-dev.firebaseio.com",
+		projectId: "jh-web-dev",
+		storageBucket: "jh-web-dev.appspot.com",
+		messagingSenderId: "68443462212"
+	};
+	firebase.initializeApp(config);
+	var database = firebase.database();
+
+	database.ref('/blog/').orderByKey();
+	database.ref('/blog/').orderByKey().once("value")
+		.then(function (snapshot) {
+			console.log(snapshot)
+			snapshot.forEach(function (childSnapshot) {
+
+				var key = childSnapshot.key;
+				console.log(key)
+
+				var data = childSnapshot.val();
+				console.log(data)
+
+				$('#blog_item').prepend('<article class="content"><h3>' + data.blogName + '</h3><img src="' + data.blogImage + '" alt="' + data.blogName +  '"> <p>' + data.blogShortDesc + ' <a href="post.html?post=' + data.postKey + '">Read More</a></article>')
+			})
+
+		})
+</script>
+
+</html>

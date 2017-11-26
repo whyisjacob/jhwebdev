@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="Jacob Hershberger Web Developer">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="JhWebDev is the online development portfolio for Jacob Hershberger. Located in Utah Jacob is a full-stack developer and makes awesome websites for those who want one.">
+    <meta name="keywords" content="Jacob Hershberger, jacob hershberger full stack developer, jacob hershberger full-stack developer, Utah Web Developer, full-stack developer, full-stack development full stack developer, full stack development,">
+    <meta name="author" content="Jacob Hershberger - Full Stack Developer">
+    <meta charset="UTF-8">
+
+    <title>Jacob Hershberger – Web Developer</title>
+
+    <!--google analytics code-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-52800155-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-52800155-1');
+    </script>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <div class="nav-content">
+                <a href='about.html' class="nav-item">About</a>
+                <a href='#' class="nav-item">Past Work</a>
+                <img alt="brand_img" class=" brand_img" src="assets/images/jh-logo.png">
+                <a href='#' class="nav-item">Contact</a>
+                <a href='#' class="nav-item">Blog</a>
+
+    </nav>
+    </div>
+    </nav>
+    <div class=" container">
+        <div class="row">
+            <section class="col-sm-12">
+                <span class="alert alert-warning hidden"></span>
+                <article class="content col-sm-12">
+                    <h3>
+                        Login
+                    </h3>
+                    <p>
+                        <label for="username">Email Address (Username)</label><br>
+                        <input type="email" name="username" id="username">
+                        <br>
+                        <label for="password">Password</label><br>
+                        <input type="password" name="password" id="password">
+                        <br>
+                        <button id="signin" class="btn btn-success" onclick="signin()">Sign In</button>
+                    </p>
+                </article>
+                <!-- <article class="content col-sm-12">
+                    <h3>
+                        Create a New Account
+                    </h3>
+                    <p>
+                        <label for="new_username">Email Address (Username)</label><br>
+                        <input type="email" name="new_username" id="new_username">
+                        <br>
+                        <label for="new_password">Password</label><br>
+                        <input type="password" name="new_password" id="new_password">
+                        <br>
+                        <button id="signin" class="btn btn-success" onclick="newAccount()">Create Account</button>
+                    </p>
+                </article> -->
+            </section>
+        </div>
+    </div>
+    <footer id="footer" class="footer"></footer>
+    <script src="assets/js/app.js"></script>
+
+</body>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-messaging.js"></script>
+
+<!-- Leave out Storage -->
+<!-- <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-storage.js"></script> -->
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBkppkWbSC6oS9osKp6nnZSMOHcrvJMx2k",
+        authDomain: "jh-web-dev.firebaseapp.com",
+        databaseURL: "https://jh-web-dev.firebaseio.com",
+        projectId: "jh-web-dev",
+        storageBucket: "jh-web-dev.appspot.com",
+        messagingSenderId: "68443462212"
+    };
+    firebase.initializeApp(config);
+
+    function signin() {
+        var email = $('#username').val();
+        var password = $('#password').val();
+
+        firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ...
+        });
+        accountSuccess();
+    } //signin()
+
+    function newAccount() {
+        var email = $('#new_username').val();
+        var password = $('#new_password').val();
+
+        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ...
+        });
+        accountSuccess();
+    }
+
+
+    function accountSuccess() {
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                // User is signed in.
+                var displayName = user.displayName;
+                var email = user.email;
+                var emailVerified = user.emailVerified;
+                var photoURL = user.photoURL;
+                var isAnonymous = user.isAnonymous;
+                var uid = user.uid;
+                var providerData = user.providerData;
+                // ...
+            } else {
+                console.log('no luck')
+                // User is signed out.
+                // ...
+            }
+        });
+    }
+
+
+    $(document).ready(function () {
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                $('.alert').removeClass('hidden')
+                $('.alert').html('You are signed in already.. Please Wait ');
+
+                setTimeout(function () {
+                    window.location = 'account.html'
+                }, 1000);
+
+            } else {
+                console.log('no luck2')
+
+                // User is signed out.
+                // ...
+            }
+        });
+    })
+</script>
+
+</html>

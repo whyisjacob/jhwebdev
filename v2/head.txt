@@ -1,0 +1,11 @@
+<div class="navbar-header">
+    <div class="nav-content">
+        <a href='about.html' class="nav-item">About</a>
+        <a href='work.html' class="nav-item">Past Work</a>
+        <a href="index.html">
+            <img alt="brand_img" class=" brand_img" src="assets/images/jh-logo.png"> 
+        </a>
+        <a href='contact.html' class="nav-item">Contact</a>
+        <a href='blog.html' class="nav-item">Blog</a>
+    </div>
+</div>
