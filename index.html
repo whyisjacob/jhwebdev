@@ -47,69 +47,54 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 	<style>
-
+		.nav-item,
+		.nav-item>a,
+		.nav-item:hover {
+			text-transform: capitalize;
+			font-size: 17px;
+			letter-spacing: 1px;
+			margin: 0px 2%;
+			cursor: pointer;
+			color: #333;
+			text-decoration: none;
+		}
 	</style>
 </head>
 
 <body>
-	<nav id="nav" class="navbar navbar-default"></nav>
-	
-	<div class=" container">
+	<nav id="nav" class="navbar">
+	</nav>
+	<div id="hero">
+		<img class="hero_img img-responsive" src="assets/images/hero_sunrise.jpg" alt="Payson Utah Sunrise">
+	</div>
+	<div class="hero_content container-fluid">
 		<div class="row">
-			<section id="portfolio_item" class="col-sm-12">
-			</section>
+			<img class="hero_me" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAIABADGAAAAAQAAAAAAAAsUAAAAJDQ5OWNhZmEwLTlhMjctNDk5Zi04ODE4LWRhZTBmY2Y3MzExZA.jpg"
+			    alt="Jake Hershberger, Utah Full-Stack Developer">
+			<br>
+			<p class="hero_me_desc">
+				Jake Hershberger
+				<br>
+				<span class='since'>Full-Stack Developer</span>
+
+			</p>
+			<br>
+			<p class="desc">
+				Building amazing websites with all the fixin's that they need.
+				<br>For those who are in need of such a thing.
+				<br>
+				<span class="since">Coding Since 2014</span>
+			</p>
+			<div class="pulse-btn" onclick="window.location.href='work.html'">
+				<a href="work.html">View Portfolio</a>
+				<div class="bg"></div>
+			</div>
+
 		</div>
 	</div>
-
 	<footer id="footer" class="footer"></footer>
-	
+	<script src="assets/js/app.js"></script>
+
 </body>
-<script src="assets/js/app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-database.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-messaging.js"></script>
-
-<!-- Leave out Storage -->
-<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-storage.js"></script>
-<script>
-	// Initialize Firebase
-	var config = {
-		apiKey: "AIzaSyBkppkWbSC6oS9osKp6nnZSMOHcrvJMx2k",
-		authDomain: "jh-web-dev.firebaseapp.com",
-		databaseURL: "https://jh-web-dev.firebaseio.com",
-		projectId: "jh-web-dev",
-		storageBucket: "jh-web-dev.appspot.com",
-		messagingSenderId: "68443462212"
-	};
-	firebase.initializeApp(config);
-	var database = firebase.database();
-
-	database.ref('/portfolio/').orderByKey();
-	database.ref('/portfolio/').orderByKey().once("value")
-		.then(function (snapshot) {
-			console.log(snapshot)
-			snapshot.forEach(function (childSnapshot) {
-
-				//recipy key
-				var key = childSnapshot.key;
-				console.log(key)
-
-				var data = childSnapshot.val();
-				console.log(data)
-
-				if(data.projectUrl == ''){
-					$('#portfolio_item').prepend('<article class="content"><h3>' + data.projectName + '</h3><img src="' + data.projectImage + '" alt="' + data.projectName +  '"> <p>' + data.projectDesc + '<br><br><strong>MY ROLE:</strong> ' + data.projectRole + '<br><br><strong>TECH USED:</strong> ' + data.projectTech +'<br> </article>')
-
-				} else {
-					$('#portfolio_item').prepend('<article class="content"><h3>' + data.projectName + '</h3><img src="' + data.projectImage + '" alt="' + data.projectName +  '"> <p>' + data.projectDesc + '<br><br><strong>MY ROLE:</strong> ' + data.projectRole + '<br><br><strong>TECH USED:</strong> ' + data.projectTech +'<br><br> <a href="//' + data.projectUrl + '" target="_blank">View Project</a></article>')
-
-				}
-
-			})
-
-		})
-</script>
 
 </html>
