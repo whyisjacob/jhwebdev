@@ -3,7 +3,7 @@
         <a href='about.html' class="nav-item">About</a>
         <a href='work.html' class="nav-item">Past Work</a>
         <a href="index.html">
-            <img alt="brand_img" class=" brand_img" src="https://firebasestorage.googleapis.com/v0/b/jh-web-dev.appspot.com/o/portfolio_images%2FJh-logo.png?alt=media&token=d1261c96-08be-4768-9726-fc48d706226a"> 
+            <img alt="brand_img" class=" brand_img" src="http://jhwebdev.com/assets/images/jh-update.png"> 
         </a>
         <a href='contact.html' class="nav-item">Contact</a>
         <a href='blog.html' class="nav-item">Blog</a>
