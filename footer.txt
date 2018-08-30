@@ -1,5 +1,11 @@
-<hr> © 2017 Jacob Hershberger All Rights reserved.<br>
+<hr> © <span id="cp-year"></span> Jacob Hershberger All Rights reserved.<br>
 <a href="login.html">login</a> 
 <!-- |
 <a href="#">Privacy Policy</a> |
 <a href="#">Terms of Use</a> <br><br> -->
+
+<script>
+var date = new Date();
+date = date.getFullYear();
+document.getElementById("cp-year").innerHTML = date;
+</script>
